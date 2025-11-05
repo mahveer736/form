@@ -35,6 +35,10 @@
             right: 0;
             z-index: 100;
             box-shadow: var(--shadow-sm);
+          
+            list-style: none;
+            
+            
         }
 
         .nav-content {
@@ -58,7 +62,7 @@
             border-radius: 12px;
         }
 
-        .brand h1 {
+        .brand h1,a {
             font-size: 1.25rem;
             font-weight: 600;
             background: linear-gradient(135deg, var(--primary), var(--secondary));

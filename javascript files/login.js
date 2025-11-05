@@ -11,6 +11,7 @@ const login = ()=> {
     firebase.auth().signInWithEmailAndPassword(email.value, password.value)
  
     .then((res) => {
+        console.log(res)
         massage.innerHTML = "User login successfully"
         massage.style.color = "green"
         console.log("sucess user login")

@@ -1,14 +1,19 @@
-// firebase.auth().onAuthStateChanged((user) => {
-//     if(user){
-//     if(user.emailverified){
-//          console.log("user email is verified")
-//        window.location.assign("../homepage/private-home.html")
-//     }else{
-//         console.log("user email is not verified")
-//             window.location.assign("../email_verify/emailverification.html")
-//     }
-// }
-// })
+let useremail = document.getElementById("email")
+
+
+firebase.auth().onAuthStateChanged((user) => {
+    if(user){
+        if(user.emailVerified){
+            window.location.assign("../homepage/private-home.html")
+        }else{
+            useremail.value = user.email
+        }
+    }
+    else{
+        window.location.assign("../login/login.html")
+    }
+})
+
 
 
 let massage = document.getElementById("massage")
@@ -19,9 +24,13 @@ const resendemail = () =>{
      btn.innerHTML = "loding..."
     firebase.auth().currentUser.sendEmailVerification()
         .then(() => { 
+         
             btn.innerHTML = "loding..."
              massage.innerText = "sucess full new email verification code send"
-            massage.style.color = ""
+            massage.style.color = "green"
+            setTimeout(() => {
+               window.location.assign("../homepage/private-home.html")
+            },2000)
         }).catch((error)=>{
             massage.innerHTML = error.massage;
             massage.style.color = "red"
@@ -29,9 +38,17 @@ const resendemail = () =>{
             
         })
         .finally(()=>{
+
             btn.innerHTML = "Resend verification email"
 
 
         })
 }
+
+
+const checkedemail = () => {
+    window.location.reload()
+    
+}
+
 

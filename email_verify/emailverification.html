@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
-  <script src="../firebase link/config.js"></script>
-
+  
   <title>Verify Your Email</title>
   <link rel="stylesheet" href="../style.css" />
 </head>
@@ -19,19 +18,25 @@
       
       <div class="resend-wrap">
          <form onsubmit="resendemail(); return false">
-        <input  type="email" placeholder="your.email@example.com" name="email" id="email"  
-           /> <p id="massage" style="text-align: left;">lorem</p>
+        <input  type="email" placeholder="your.email@example.com" name="email" value="loding..." id="email"  
+           /> <p id="massage" style="text-align: left;"></p>
           
         <!-- HTML/CSS-only resend button (no onclick) -->
-        <input type="submit" class="resend-btn" href="#"  value="Resend verification email" required ></input>
+        <input type="submit" class="resend-btn" href="#"  value="Resend verification email" required id="btn"></input>
         
-            </form>
+            </form><br>
+
+            <input type="submit" class="resend-btn" onclick="checkedemail()"  value="I've Verified - Continue" required  ></input>
+            
       </div>
       
       <a href="../login/login.html" class="btn btn-primary" style="display:inline-block;margin-top:12px">Back to
         Login</a>
+         
     </div>
 </body>
+<script src="../firebase link/config.js"></script>
+
 <script src="../javascript files/emailverify.js"></script>
 
 </html>
