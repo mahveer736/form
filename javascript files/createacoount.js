@@ -1,19 +1,21 @@
-let firstname = document.getElementById('fname');
-let lastname = document.getElementById('lname');
+let fullname = document.getElementById('Fullname');
 let email = document.getElementById('email');
 let password = document.getElementById('password');
 let confirmpass = document.getElementById('confirm');
 let btn = document.getElementById('btn');
 let massage = document.getElementById('massage');
-let = gender = document.getElementsByName("gender")
+;
+     
+    
 
 
+    
 
  const sigin = () => {
     let age = document.getElementById("age")
+    let gender = document.getElementsByName("gender")
 
-
- let selectedgender = ""
+    let selectedgender = ""
     for (let index in gender) {
         if (gender[index].checked) {
             selectedgender = gender[index].value
@@ -24,6 +26,14 @@ let = gender = document.getElementsByName("gender")
     
     
     btn.innerHTML = "loding..."
+    if (password.value !== confirmpass.value) {
+        massage.innerHTML = "Passwords do not match!";
+        massage.style.color = "red";
+        btn.innerHTML = "Sign Up";
+
+    }
+   
+
 
     //send data to firebase
     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
@@ -38,45 +48,30 @@ let = gender = document.getElementsByName("gender")
 
 
                     //data data store ----------------------a----------------------------
-                     firebase.database().ref("users/" +  res.user.uid).set({
-                        firstname: firstname.value,
-                        lastname: lastname.value,
+                     firebase.database().ref("users/" + res.user.uid).set({
+                    fullname: fullname.value,
                         age: selectedAge,
                         gender: selectedgender,
                         Email: email.value,
                         Password: password.value,
                         Confrompassword: confirmpass.value
-
-
                     }).then(() => {
-                        lastname.value = ""
-                       firstname.value = ""
+                        fullname.value = ""
                         email.value = ""
                         password.value = ""
                         confirmpass.value = ""
-                        window.location.assign("./email_verify/emailverification.html")
+                        age.selectedIndex = 0;
+                        gender.forEach((gender) => {
+                            gender.checked = false
+                                 window.location.assign("./email_verify/emailverification.html")
+                        })
+
                     })
                      
                    
                 }).catch((error) => {
-                    console.log("email not sent")
-
+                   console.error("Email not sent:", error);
                 })
-
-
-
-            setTimeout(() => {
-                name.value = ""
-                email.value = ""
-                password.value = ""
-                confirmpass.value = ""
-                console.log("email sent")
-
-
-
-
-            }, 2000)
-            console.log("sucess user login")
 
 
         }).catch((error) => {
@@ -85,10 +80,7 @@ let = gender = document.getElementsByName("gender")
             massage.style.color = "red"
             console.log("not a user login")
         });
-
 }
-
-
 
 
 

@@ -10,14 +10,11 @@ firebase.auth().onAuthStateChanged((user) => {
     if (user.emailVerified) {
    console.log("user verified",user.emailVerified)
       firebase.database().ref("users/" + user.uid).on("value", (userres) => {
-        welcome.innerHTML = `Welcome back, ${userres.val().firstname}! 👋`
-         username.innerHTML = `${userres.val().firstname}`
-     username  .innerHTML = `${userres.val().lastname}`
-       userprofile .innerHTML = userres
-          .val()
-          .firstname.slice(0, 2)
-          .toUpperCase();
-
+        welcome.innerHTML = `Welcome back , ${userres.val().fullname}! 👋`
+         username.innerHTML = `${userres.val().fullname}`
+          profileImage.src = userres.val().profile_picture;
+    
+        
         
       })
 

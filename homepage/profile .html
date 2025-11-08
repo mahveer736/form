@@ -26,8 +26,12 @@
                 <div>
                     <li class="user-name" ><a href="./profile.html">Profile</a></li>
                 </div>
+              
                 <div class="user-info">
-                    <div class="avatar" id="usernameprofile">JD</div>
+                  <div calss="navimg">
+                  <img src="https://cdn.vectorstock.com/i/500p/06/93/generic-blue-profile-icon-avatar-placeholder-user-vector-56660693.jpg" id="navprofile" width="50" height="50"
+ alt=""></div>
+                   
                     <span class="user-name" id="username">loding...</span>
                 </div>
                 <button class="logout-btn" onclick="logout()">Logout</button>
@@ -43,6 +47,12 @@
           <h1>My Profile</h1>
           <p>Manage your personal information and settings</p>
         </div>
+           </main>
+<section class="welcome-card">
+            <h2 id="welcome">Loading...</h2>
+            <p>Your premium membership gives you access to all features</p>
+        </section>
+
 
         <div class="profile-container">
           <!-- Profile Image Section -->
@@ -96,27 +106,18 @@
               class="profile-form"
               onsubmit="updateProfile(); return false"
             >
-              <div class="form-row">
+              
                 <div class="form-group">
-                  <label for="firstName">First Name</label>
+                  <label for="fullname">Full Name</label>
                   <input
                     type="text"
-                    id="firstName"
-                    placeholder="First name"
-                    value="meer"
+                    id="fullname"
+                    placeholder="fullname "
                     required
                   />
-                </div>
+                
 
-                <div class="form-group">
-                  <label for="lastName">Last Name</label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    placeholder="Last name"
-                    required
-                  />
-                </div>
+             
               </div>
 
               <div class="form-group">
@@ -125,7 +126,7 @@
                   type="email"
                   id="email"
                   placeholder="Email"
-                 
+                 disabled
                   readonly
                 />
                 <small class="field-note">Email cannot be changed</small>
@@ -247,7 +248,7 @@
                 ></textarea>
               </div>
 
-              <p id="message" >meer</p>
+              <p id="message" ></p>
 
               <div class="form-actions">
                 <input
@@ -283,8 +284,7 @@
           </div>
         </div>
       </div>
-    </main>
-
+ 
     
   </body>
     <script src="../javascript files/profile.js"></script>
