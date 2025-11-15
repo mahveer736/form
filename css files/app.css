@@ -1,0 +1,25 @@
+/* Toast Message Styles */
+#message {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#message:empty {
+  display: none;
+}
+
+#message.success {
+  color: #155724;
+  background-color: #d4edda;
+  border-left-color: #155724;
+  border-left-width: 3px;
+  border-left-style: solid;
+}
+
+#message.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-left-color: #721c24;
+  border-left-width: 3px;
+  border-left-style: solid;
+}

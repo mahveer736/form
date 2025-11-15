@@ -1,15 +1,11 @@
 let fullname = document.getElementById('Fullname');
+
 let email = document.getElementById('email');
 let password = document.getElementById('password');
 let confirmpass = document.getElementById('confirm');
 let btn = document.getElementById('btn');
 let massage = document.getElementById('massage');
-;
-     
-    
-
-
-    
+ 
 
  const sigin = () => {
     let age = document.getElementById("age")
@@ -63,7 +59,7 @@ let massage = document.getElementById('massage');
                         age.selectedIndex = 0;
                         gender.forEach((gender) => {
                             gender.checked = false
-                                 window.location.assign("./email_verify/emailverification.html")
+                                 window.location.assign("../html pages/emailverification.html")
                         })
 
                     })

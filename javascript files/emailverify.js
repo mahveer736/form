@@ -3,14 +3,22 @@ let useremail = document.getElementById("email")
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user){
+        if(user.providerData[0].providerId === "facebook.com"){
+            window.location.assign("./../html pages/private-home.html")
+
+        }else{
+
         if(user.emailVerified){
-            window.location.assign("../homepage/private-home.html")
+            window.location.assign("./../html pages/private-home.html")
         }else{
             useremail.value = user.email
         }
+        }
+        
+    
     }
     else{
-        window.location.assign("../login/login.html")
+        window.location.assign("./../html pages/login.html")
     }
 })
 
@@ -29,7 +37,7 @@ const resendemail = () =>{
              massage.innerText = "sucess full new email verification code send"
             massage.style.color = "green"
             setTimeout(() => {
-               window.location.assign("../homepage/private-home.html")
+               window.location.assign("./../html pages/private-home.html")
             },2000)
         }).catch((error)=>{
             massage.innerHTML = error.massage;

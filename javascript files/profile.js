@@ -5,14 +5,15 @@ let updatebtn = document.getElementById("updateBtn")
 let genderInputs = document.getElementsByName("gender");
 let btn = document.getElementById("btn")
 let bio = document.getElementById("bio");
-let massage = document.getElementById("massage")
+let massage = document.getElementById("msg")
 let uid = ""
-useruid = document.getElementById("userId");
-useremailverified = document.getElementById("emailVerified");
-lastsigin = document.getElementById("lastSignIn");
-createaccounttime = document.getElementById("createdDate");
+let useruid = document.getElementById("userId");
+let useremailverified = document.getElementById("emailVerified");
+let lastsigin = document.getElementById("lastSignIn");
+let createaccounttime = document.getElementById("createdDate");
 let profileImage = document.getElementById("profileImage");
-navpriofile = document.getElementById("navprofile")
+let navprofile = document.getElementById("navprofile")
+
 
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -27,16 +28,20 @@ firebase.auth().onAuthStateChanged((user) => {
         useremailverified.innerText = user.emailVerified;
         createaccounttime.innerText = user.metadata.creationTime;
         lastsigin.innerText = user.metadata.lastSignInTime;
+
       
         console.log("profile page => ", userRes.val());
 
-        fullname.value = userRes.val().fullname;
+        fullname.value = userRes.val().fullname? userRes.val().fullname : "";
         email.value = userRes.val().Email;
         age.value = userRes.val().age;
       bio.value = userRes.val().bio ? userRes.val().bio : "";
-      if(userRes.val().profile_picture){
-      profileImage.src = userRes.val().profile_picture;
-      navpriofile.src = userRes.val().profile_picture
+      if(userRes.val().profileImage){
+      profileImage.src = userRes.val().profileImage;
+      navprofile.src = userRes.val().profileImage
+      
+      }else{
+         profileImage.src="https://cdn.vectorstock.com/i/500p/06/93/generic-blue-profile-icon-avatar-placeholder-user-vector-56660693.jpg"
       }
      
         for (let i = 1; i < genderInputs.length; i++) {
@@ -86,6 +91,8 @@ const updateProfile = () => {
       age: selectedAge,
       gender: selectedGender,
       bio: bio.value,
+      profileImage: profileImage.src,
+      // navpriofile: profileImage.src
     })
     .then(() => {
       updatebtn.innerText = "Loading...";
@@ -94,7 +101,11 @@ const updateProfile = () => {
     })
     .catch((error) => {
       updatebtn.innerText = "Update Profile";
-      massage.innerText = error.message;
+      massage.innerHTML = error.message;
       massage.style.color = "red";
     });
 };
+
+
+
+

@@ -9,32 +9,75 @@
     <script src="../firebase link/config.js"></script>
 
     <title>Dashboard | Premium Member Area</title>
-    <link rel="stylesheet" href="homepage.css">
+ 
+  <link rel="stylesheet" href="../css files/homepage.css">
 </head>
 <body>
+       <!-- Navbar -->
     <nav class="navbar">
-        <div class="nav-content">
-            <div class="brand">
-                <div class="logo"></div>
-                <h1>Premium Dashboard</h1>
-            </div>
-            <div class="user-menu">
-                <div>
-                    <li class="user-name" ><a href="./profile .html">Profile</a></li>
-                </div>
-                <div class="user-info" >
-                     <img
-                id="profileImage"
-                src="https://cdn.vectorstock.com/i/500p/06/93/generic-blue-profile-icon-avatar-placeholder-user-vector-56660693.jpg" calss="navimg" 
-                alt="Profile"
-                class="profile-image" width="50" height="50"
-              />
-                    <span class="user-name" id="username">loding...</span>
-                </div>
-                <button class="logout-btn" onclick="logout()">Logout</button>
-            </div>
+      <div class="nav-container">
+        <div class="nav-brand">
+          <h2>Firebase Auth</h2>
         </div>
+
+        <div class="nav-menu" id="navMenu">
+          <ul class="nav-list">
+            <li><a href="private-home.html" class="nav-link">Home</a></li>
+            <li class="nav-dropdown">
+              <a href="#" class="nav-link active">Realtime Database ▾</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="./Database_addtodod.html" class="dropdown-item"
+                    >Add Todos</a
+                  >
+                </li>
+                <li>
+                  <a href="./realtime-my-todos.html" class="dropdown-item"
+                    >My Todos</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-dropdown">
+              <a href="#" class="nav-link">Firestore Database ▾</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="./firestore_addtodo.html" class="dropdown-item"
+                    >Add Todos</a
+                  >
+                </li>
+                <li>
+                  <a href="./firestore_mytodos.html" class="dropdown-item"
+                    >My Todos</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="./profile .html" class="nav-link">Profile</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-user">
+          <div class="user-info">
+            <div class="user-avatar">
+              <img
+                id="profileImage"
+                src="https://alliancebjjmn.com/wp-content/uploads/2019/07/placeholder-profile-sq-491x407.jpg"
+              />
+            </div>
+            <span class="user-name" id="username">Loading ...</span>
+          </div>
+          <button class="btn-logout" onclick="logout()">Log Out</button>
+        </div>
+
+        <div class="nav-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </nav>
+    
 
     <main>
         <section class="welcome-card">

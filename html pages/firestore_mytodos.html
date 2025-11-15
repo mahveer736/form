@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Todos - Firebase Auth</title>
+     <script src = "https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src = "https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src = "https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="../firebase link/config.js"></script>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+ <link rel="stylesheet" href="./../css files/app.css">
+   <link rel="stylesheet" href="./../css files/todo.css">
+ <link rel="stylesheet" href="./../css files/homepage.css">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <h2>Firebase Auth</h2>
+        </div>
+
+        <div class="nav-menu" id="navMenu">
+          <ul class="nav-list">
+            <li><a href="./private-home.html" class="nav-link">Home</a></li>
+            <li class="nav-dropdown">
+              <a href="#" class="nav-link active">Realtime Database ▾</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="./../realtime todos/todos.html" class="dropdown-item"
+                    >Add Todos</a
+                  >
+                </li>
+                <li>
+                  <a href="./Database_addtodod.html" class="dropdown-item"
+                    >My Todos</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-dropdown">
+              <a href="#" class="nav-link">Firestore Database ▾</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="./firestore_addtodo.html" class="dropdown-item"
+                    >Add Todos</a
+                  >
+                </li>
+                <li>
+                  <a href="firestore_mytodos.html" class="dropdown-item"
+                    >My Todos</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="./profile .html" class="nav-link">Profile</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-user">
+          <div class="user-info">
+            <div class="user-avatar">
+              <img
+                id="profileImage"
+                src="https://alliancebjjmn.com/wp-content/uploads/2019/07/placeholder-profile-sq-491x407.jpg"
+              />
+            </div>
+            <span class="user-name" id="username">Loading ...</span>
+          </div>
+          <button class="btn-logout" onclick="logout()">Log Out</button>
+        </div>
+
+        <div class="nav-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="page-header">
+          <h1>My Todos</h1>
+          <p>Manage your personal todos</p>
+        </div>
+        
+        <section class="welcome-card">
+            <h2 id="welcome">Loading...</h2>
+            <p>Your premium membership gives you access to all features</p>
+        </section>
+
+
+
+
+
+
+        <div class="todos-container">
+          <!-- Add Todo Section -->
+          <div class="add-todo-section">
+            <h2>Add New Todo</h2>
+            <form id="todoForm" class="todo-form" >
+              <div class="form-group">
+                <label for="todoTitle">Todo Title</label>
+                <input
+                  type="text"
+                  id="todoTitle"
+                  placeholder="Enter todo title"
+                  required
+                 
+                />
+                
+              </div>
+              <p id="msg" class="message">meer</p>
+
+              
+              <button type="submit" class="btn-add" id="addBtn" onclick="mytodos(); return false" >
+                Add Todo
+                
+              </button>
+              
+            </form>
+            
+          </div>
+
+          <!-- My Todos Section -->
+          <div class="all-todos-section">
+            <div class="section-header">
+              <h2>My Todos</h2>
+              <span class="todo-count" id="todoCount" style="display: none;">4 todos</span>
+            </div>
+
+            <div id="todosContainer" class="todos-list">
+               <p id="data-loading">Loading ...</p>
+              <p id="data-empty">No todos found!</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Edit Todo</h2>
+          <span class="close" onclick="CloseModal()">&times;</span>
+        </div>
+        <form id="editForm" class="modal-form">
+          <div class="form-group">
+            <label for="editTitle">Todo Title</label>
+            <input
+              type="text"
+              id="editTitle"
+              placeholder="Enter todo title"
+              required
+            />
+          </div>
+          <p id="editMessage" class="message"></p>
+          <div class="modal-actions">
+            <button type="button" class="btn-cancel" onclick="CloseModal()">
+              Cancel
+            </button>
+            <button type="submit" class="btn-save" id="saveBtn">
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+   
+   
+  </body>
+  <script src="./../javascript files/home.js"></script>
+
+</html>
