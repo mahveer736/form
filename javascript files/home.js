@@ -1,5 +1,4 @@
 username = document.getElementById("username")
-// let userprofile = document.getElementById("usernameprofile")
 let welcome = document.getElementById("welcome")
  profileImage = document.getElementById("profileImage")
 
@@ -12,10 +11,10 @@ firebase.auth().onAuthStateChanged((user) => {
         welcome.innerHTML = `Welcome back , ${userres.val().fullname}! 👋`
          username.innerHTML = `${userres.val().fullname}`
           profileImage.src = userres.val().profileImage;
-          // userprofile.src = userres.val().profileImage;
-
+       
     })
     }else{
+
     if (user.emailVerified) {
    console.log("user verified",user.emailVerified)
       firebase.database().ref("users/" + user.uid).on("value", (userres) => {
@@ -29,13 +28,13 @@ firebase.auth().onAuthStateChanged((user) => {
     }
     else {
       console.log("user not Verified")
-      window.location.assign("./../html pages/emailverification.html")
+      window.location.assign("../html pages/emailverification.html")
     }
   }
 
   } else {
     console.log("no user logged in")
-    window.location.assign("./../html pages/login.html")
+    window.location.assign("../html pages/login.html")
 
   }
 });
@@ -47,7 +46,7 @@ const logout = () => {
     .then((res) => {
       console.log(res)
       console.log("User signed out");
-      window.location.assign("./../html pages/login.html");
+      window.location.assign("../html pages/login.html");
     })
     .catch((error) => {
       console.error("Error signing out:", error);

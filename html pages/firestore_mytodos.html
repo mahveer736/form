@@ -4,15 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Todos - Firebase Auth</title>
-     <script src = "https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    title>Realtime Todos - Firebase Auth</title>
+      <script src = "https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src = "https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
     <script src = "https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src = "https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
     <script src="../firebase link/config.js"></script>
-   
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
- <link rel="stylesheet" href="./../css files/app.css">
-   <link rel="stylesheet" href="./../css files/todo.css">
- <link rel="stylesheet" href="./../css files/homepage.css">
+ <link rel="stylesheet" href="../css files/app.css">
+   <link rel="stylesheet" href="../css files/todo.css">
+ <link rel="stylesheet" href="../css files/homepage.css">
   </head>
   <body>
     <!-- Navbar -->
@@ -29,7 +31,7 @@
               <a href="#" class="nav-link active">Realtime Database ▾</a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="./../realtime todos/todos.html" class="dropdown-item"
+                  <a href="./Database_addtodod.html" class="dropdown-item"
                     >Add Todos</a
                   >
                 </li>
@@ -103,7 +105,7 @@
           <!-- Add Todo Section -->
           <div class="add-todo-section">
             <h2>Add New Todo</h2>
-            <form id="todoForm" class="todo-form" >
+            <form id="todoForm"   onsubmit="mytodo(); return false" class="todo-form" >
               <div class="form-group">
                 <label for="todoTitle">Todo Title</label>
                 <input
@@ -118,7 +120,7 @@
               <p id="msg" class="message">meer</p>
 
               
-              <button type="submit" class="btn-add" id="addBtn" onclick="mytodos(); return false" >
+              <button type="submit" class="btn-add" id="addBtn" >
                 Add Todo
                 
               </button>
@@ -145,11 +147,11 @@
     </main>
 
     <!-- Edit Modal -->
-    <div id="editModal" class="modal">
+    <!-- <div id="editModal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
           <h2>Edit Todo</h2>
-          <span class="close" onclick="CloseModal()">&times;</span>
+          <span class="close" >&times;</span>
         </div>
         <form id="editForm" class="modal-form">
           <div class="form-group">
@@ -163,7 +165,7 @@
           </div>
           <p id="editMessage" class="message"></p>
           <div class="modal-actions">
-            <button type="button" class="btn-cancel" onclick="CloseModal()">
+            <button type="button" class="btn-cancel">
               Cancel
             </button>
             <button type="submit" class="btn-save" id="saveBtn">
@@ -172,10 +174,11 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> -->
    
    
   </body>
-  <script src="./../javascript files/home.js"></script>
+  <script src="../javascript files/home.js"></script>
+  <script src="../javascript files/firestore_Mytodos.js"></script>
 
 </html>

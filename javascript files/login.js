@@ -18,7 +18,7 @@ const login = () => {
             setTimeout(() => {
                 email.value = ""
                 password.value = "";
-                window.location.assign("./../html pages/private-home.html");
+                window.location.assign("../html pages/private-home.html");
             }, 2000)
         }).catch((error) => {
             btn.innerHTML = "Log In"
@@ -51,7 +51,7 @@ const goolesigin = () => {
                         console.log("sucess user login")
                         setTimeout(() => {
                             
-                            window.location.assign("./../html pages/private-home.html");
+                            window.location.assign("../html pages/private-home.html");
 
                         }, 2000)
                     } else {
@@ -73,7 +73,7 @@ const goolesigin = () => {
                              massage.style.color = "green"
                             btn.value = "Log In";
                             setTimeout(() => {
-                                window.location.assign("./../html pages/private-home.html");
+                                window.location.assign("../html pages/private-home.html");
                             }, 2000);
                         });
                     }
@@ -118,7 +118,7 @@ const signInWithFacebook = () =>{
                         console.log("sucess user login")
                         setTimeout(() => {
                             
-                            window.location.assign("./../html pages/private-home.html")
+                            window.location.assign("../html pages/private-home.html")
 
                         }, 2000)
                     } else {
@@ -140,7 +140,7 @@ const signInWithFacebook = () =>{
                              massage.style.color = "green"
                             btn.value = "Log In";
                             setTimeout(() => {
-                                window.location.assign("./../html pages/private-home.html");
+                                window.location.assign("../html pages/private-home.html");
                             }, 2000);
                         });
                     }
